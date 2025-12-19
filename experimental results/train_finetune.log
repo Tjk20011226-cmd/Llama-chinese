@@ -1,0 +1,712 @@
+[2024-12-02 16:00:51,996] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+[2024-12-02 16:00:53,393] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-12-02 16:00:53,393] [INFO] [runner.py:568:main] cmd = /home/chengcheng/anaconda3/envs/llama_chinese/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None finetune_clm.py --model_name_or_path 全微调_ccpm+诗词生成_2epoch --train_files data/微调数据/诗词生成_简体_微调样式.csv data/微调数据/ccpm_instruction_factory.csv data/微调数据/模型生成.csv data/微调数据/诗词翻译_简体.csv data/微调数据/ccpc_关键词生成诗词_简体_微调样式.csv data/微调数据/ccpc_提取关键词_简体_微调样式.csv data/微调数据/COIG-CQIA-full.csv --per_device_train_batch_size 24 --per_device_eval_batch_size 24 --do_train --use_fast_tokenizer false --output_dir 二阶段全微调_全诗词数据_1epoch --evaluation_strategy steps --max_eval_samples 800 --learning_rate 1e-4 --gradient_accumulation_steps 8 --num_train_epochs 1 --warmup_steps 400 --logging_dir 二阶段全微调_全诗词数据_1epoch/logs --logging_strategy steps --logging_steps 10 --save_strategy steps --preprocessing_num_workers 10 --save_steps 1000 --eval_steps 200000 --save_total_limit 5 --seed 42 --disable_tqdm false --ddp_find_unused_parameters false --block_size 512 --report_to tensorboard --overwrite_output_dir --deepspeed ds_config_zero2.json --ignore_data_skip true --bf16 --gradient_checkpointing --bf16_full_eval --ddp_timeout 18000000
+[2024-12-02 16:00:54,693] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+[2024-12-02 16:00:56,358] [INFO] [launch.py:139:main] 0 NCCL_P2P_DISABLE=1
+[2024-12-02 16:00:56,358] [INFO] [launch.py:139:main] 0 NCCL_IB_DISABLE=1
+[2024-12-02 16:00:56,358] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2024-12-02 16:00:56,358] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=4, node_rank=0
+[2024-12-02 16:00:56,358] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2024-12-02 16:00:56,358] [INFO] [launch.py:164:main] dist_world_size=4
+[2024-12-02 16:00:56,358] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2024-12-02 16:00:56,359] [INFO] [launch.py:256:main] process 3384711 spawned with command: ['/home/chengcheng/anaconda3/envs/llama_chinese/bin/python', '-u', 'finetune_clm.py', '--local_rank=0', '--model_name_or_path', '全微调_ccpm+诗词生成_2epoch', '--train_files', 'data/微调数据/诗词生成_简体_微调样式.csv', 'data/微调数据/ccpm_instruction_factory.csv', 'data/微调数据/模型生成.csv', 'data/微调数据/诗词翻译_简体.csv', 'data/微调数据/ccpc_关键词生成诗词_简体_微调样式.csv', 'data/微调数据/ccpc_提取关键词_简体_微调样式.csv', 'data/微调数据/COIG-CQIA-full.csv', '--per_device_train_batch_size', '24', '--per_device_eval_batch_size', '24', '--do_train', '--use_fast_tokenizer', 'false', '--output_dir', '二阶段全微调_全诗词数据_1epoch', '--evaluation_strategy', 'steps', '--max_eval_samples', '800', '--learning_rate', '1e-4', '--gradient_accumulation_steps', '8', '--num_train_epochs', '1', '--warmup_steps', '400', '--logging_dir', '二阶段全微调_全诗词数据_1epoch/logs', '--logging_strategy', 'steps', '--logging_steps', '10', '--save_strategy', 'steps', '--preprocessing_num_workers', '10', '--save_steps', '1000', '--eval_steps', '200000', '--save_total_limit', '5', '--seed', '42', '--disable_tqdm', 'false', '--ddp_find_unused_parameters', 'false', '--block_size', '512', '--report_to', 'tensorboard', '--overwrite_output_dir', '--deepspeed', 'ds_config_zero2.json', '--ignore_data_skip', 'true', '--bf16', '--gradient_checkpointing', '--bf16_full_eval', '--ddp_timeout', '18000000']
+[2024-12-02 16:00:56,360] [INFO] [launch.py:256:main] process 3384712 spawned with command: ['/home/chengcheng/anaconda3/envs/llama_chinese/bin/python', '-u', 'finetune_clm.py', '--local_rank=1', '--model_name_or_path', '全微调_ccpm+诗词生成_2epoch', '--train_files', 'data/微调数据/诗词生成_简体_微调样式.csv', 'data/微调数据/ccpm_instruction_factory.csv', 'data/微调数据/模型生成.csv', 'data/微调数据/诗词翻译_简体.csv', 'data/微调数据/ccpc_关键词生成诗词_简体_微调样式.csv', 'data/微调数据/ccpc_提取关键词_简体_微调样式.csv', 'data/微调数据/COIG-CQIA-full.csv', '--per_device_train_batch_size', '24', '--per_device_eval_batch_size', '24', '--do_train', '--use_fast_tokenizer', 'false', '--output_dir', '二阶段全微调_全诗词数据_1epoch', '--evaluation_strategy', 'steps', '--max_eval_samples', '800', '--learning_rate', '1e-4', '--gradient_accumulation_steps', '8', '--num_train_epochs', '1', '--warmup_steps', '400', '--logging_dir', '二阶段全微调_全诗词数据_1epoch/logs', '--logging_strategy', 'steps', '--logging_steps', '10', '--save_strategy', 'steps', '--preprocessing_num_workers', '10', '--save_steps', '1000', '--eval_steps', '200000', '--save_total_limit', '5', '--seed', '42', '--disable_tqdm', 'false', '--ddp_find_unused_parameters', 'false', '--block_size', '512', '--report_to', 'tensorboard', '--overwrite_output_dir', '--deepspeed', 'ds_config_zero2.json', '--ignore_data_skip', 'true', '--bf16', '--gradient_checkpointing', '--bf16_full_eval', '--ddp_timeout', '18000000']
+[2024-12-02 16:00:56,361] [INFO] [launch.py:256:main] process 3384713 spawned with command: ['/home/chengcheng/anaconda3/envs/llama_chinese/bin/python', '-u', 'finetune_clm.py', '--local_rank=2', '--model_name_or_path', '全微调_ccpm+诗词生成_2epoch', '--train_files', 'data/微调数据/诗词生成_简体_微调样式.csv', 'data/微调数据/ccpm_instruction_factory.csv', 'data/微调数据/模型生成.csv', 'data/微调数据/诗词翻译_简体.csv', 'data/微调数据/ccpc_关键词生成诗词_简体_微调样式.csv', 'data/微调数据/ccpc_提取关键词_简体_微调样式.csv', 'data/微调数据/COIG-CQIA-full.csv', '--per_device_train_batch_size', '24', '--per_device_eval_batch_size', '24', '--do_train', '--use_fast_tokenizer', 'false', '--output_dir', '二阶段全微调_全诗词数据_1epoch', '--evaluation_strategy', 'steps', '--max_eval_samples', '800', '--learning_rate', '1e-4', '--gradient_accumulation_steps', '8', '--num_train_epochs', '1', '--warmup_steps', '400', '--logging_dir', '二阶段全微调_全诗词数据_1epoch/logs', '--logging_strategy', 'steps', '--logging_steps', '10', '--save_strategy', 'steps', '--preprocessing_num_workers', '10', '--save_steps', '1000', '--eval_steps', '200000', '--save_total_limit', '5', '--seed', '42', '--disable_tqdm', 'false', '--ddp_find_unused_parameters', 'false', '--block_size', '512', '--report_to', 'tensorboard', '--overwrite_output_dir', '--deepspeed', 'ds_config_zero2.json', '--ignore_data_skip', 'true', '--bf16', '--gradient_checkpointing', '--bf16_full_eval', '--ddp_timeout', '18000000']
+[2024-12-02 16:00:56,361] [INFO] [launch.py:256:main] process 3384714 spawned with command: ['/home/chengcheng/anaconda3/envs/llama_chinese/bin/python', '-u', 'finetune_clm.py', '--local_rank=3', '--model_name_or_path', '全微调_ccpm+诗词生成_2epoch', '--train_files', 'data/微调数据/诗词生成_简体_微调样式.csv', 'data/微调数据/ccpm_instruction_factory.csv', 'data/微调数据/模型生成.csv', 'data/微调数据/诗词翻译_简体.csv', 'data/微调数据/ccpc_关键词生成诗词_简体_微调样式.csv', 'data/微调数据/ccpc_提取关键词_简体_微调样式.csv', 'data/微调数据/COIG-CQIA-full.csv', '--per_device_train_batch_size', '24', '--per_device_eval_batch_size', '24', '--do_train', '--use_fast_tokenizer', 'false', '--output_dir', '二阶段全微调_全诗词数据_1epoch', '--evaluation_strategy', 'steps', '--max_eval_samples', '800', '--learning_rate', '1e-4', '--gradient_accumulation_steps', '8', '--num_train_epochs', '1', '--warmup_steps', '400', '--logging_dir', '二阶段全微调_全诗词数据_1epoch/logs', '--logging_strategy', 'steps', '--logging_steps', '10', '--save_strategy', 'steps', '--preprocessing_num_workers', '10', '--save_steps', '1000', '--eval_steps', '200000', '--save_total_limit', '5', '--seed', '42', '--disable_tqdm', 'false', '--ddp_find_unused_parameters', 'false', '--block_size', '512', '--report_to', 'tensorboard', '--overwrite_output_dir', '--deepspeed', 'ds_config_zero2.json', '--ignore_data_skip', 'true', '--bf16', '--gradient_checkpointing', '--bf16_full_eval', '--ddp_timeout', '18000000']
+[2024-12-02 16:00:57,602] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-12-02 16:00:57,625] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-12-02 16:00:57,708] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-12-02 16:00:57,776] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+ninja: no work to do.
+Time to load cpu_adam op: 2.476841926574707 seconds
+[2024-12-02 16:01:02,390] [INFO] [comm.py:637:init_distributed] cdb=None
+ninja: no work to do.
+Time to load cpu_adam op: 2.5538625717163086 seconds
+[2024-12-02 16:01:02,445] [INFO] [comm.py:637:init_distributed] cdb=None
+Time to load cpu_adam op: 2.49139404296875 seconds
+Time to load cpu_adam op: 2.430893898010254 seconds
+[2024-12-02 16:01:02,509] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-12-02 16:01:02,521] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-12-02 16:01:02,521] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+12/02/2024 16:01:03 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+12/02/2024 16:01:03 - INFO - __main__ - Training/evaluation parameters CustomTrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+ag=True,
+attn_head_types=0,1,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=True,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=18000000,
+debug=[],
+deepspeed=ds_config_zero2.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=200000,
+evaluation_strategy=steps,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=8,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=True,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0001,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=二阶段全微调_全诗词数据_1epoch/logs,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=二阶段全微调_全诗词数据_1epoch,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=24,
+per_device_train_batch_size=24,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+resume_from_checkpoint=None,
+run_name=二阶段全微调_全诗词数据_1epoch,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=1000,
+save_strategy=steps,
+save_total_limit=5,
+scale=10.0,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=400,
+weight_decay=0.0,
+)
+12/02/2024 16:01:03 - INFO - datasets.builder - Using custom data configuration default-bdf4504b87390df9
+12/02/2024 16:01:03 - INFO - datasets.info - Loading Dataset Infos from /home/chengcheng/anaconda3/envs/llama_chinese/lib/python3.10/site-packages/datasets/packaged_modules/csv
+12/02/2024 16:01:03 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1distributed training: True, 16-bits training: False
+12/02/2024 16:01:03 - INFO - datasets.builder - Generating dataset csv (/mnt/sda5/data_chengcheng/Llama-Chinese/二阶段全微调_全诗词数据_1epoch/dataset_cache/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52)
+12/02/2024 16:01:03 - INFO - datasets.builder - Downloading and preparing dataset csv/default to /mnt/sda5/data_chengcheng/Llama-Chinese/二阶段全微调_全诗词数据_1epoch/dataset_cache/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52...
+12/02/2024 16:01:03 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+12/02/2024 16:01:03 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+12/02/2024 16:01:03 - INFO - datasets.builder - Generating train split
+12/02/2024 16:01:03 - WARNING - __main__ - Process rank: 2, device: cuda:2, n_gpu: 1distributed training: True, 16-bits training: False
+12/02/2024 16:01:03 - WARNING - __main__ - Process rank: 3, device: cuda:3, n_gpu: 1distributed training: True, 16-bits training: False
+12/02/2024 16:01:07 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+12/02/2024 16:01:07 - INFO - datasets.builder - Dataset csv downloaded and prepared to /mnt/sda5/data_chengcheng/Llama-Chinese/二阶段全微调_全诗词数据_1epoch/dataset_cache/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52. Subsequent calls will reuse this data.
+12/02/2024 16:01:07 - INFO - datasets.builder - Using custom data configuration default-bdf4504b87390df9
+12/02/2024 16:01:07 - INFO - datasets.info - Loading Dataset Infos from /home/chengcheng/anaconda3/envs/llama_chinese/lib/python3.10/site-packages/datasets/packaged_modules/csv
+12/02/2024 16:01:07 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+12/02/2024 16:01:07 - INFO - datasets.info - Loading Dataset info from /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52
+12/02/2024 16:01:07 - INFO - datasets.builder - Found cached dataset csv (/home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52)
+12/02/2024 16:01:07 - INFO - datasets.info - Loading Dataset info from /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52
+12/02/2024 16:01:07 - INFO - datasets.builder - Using custom data configuration default-bdf4504b87390df9
+12/02/2024 16:01:07 - INFO - datasets.info - Loading Dataset Infos from /home/chengcheng/anaconda3/envs/llama_chinese/lib/python3.10/site-packages/datasets/packaged_modules/csv
+12/02/2024 16:01:07 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+12/02/2024 16:01:07 - INFO - datasets.info - Loading Dataset info from /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52
+12/02/2024 16:01:07 - INFO - datasets.builder - Found cached dataset csv (/home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52)
+12/02/2024 16:01:07 - INFO - datasets.info - Loading Dataset info from /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52
+None
+None
+None
+LlamaConfig {
+  "_name_or_path": "\u5168\u5fae\u8c03_ccpm+\u8bd7\u8bcd\u751f\u6210_2epoch",
+  "ag": true,
+  "alpha": 0.1,
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": true,
+  "attention_dropout": 0.1,
+  "attn_head_types": "0,1",
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 2560,
+  "max_length": 512,
+  "max_position_embeddings": 512,
+  "model_type": "llama",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 4,
+  "output_attentions": true,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scale": 0.1,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.39.0",
+  "use_cache": true,
+  "vocab_size": 55300
+}
+
+LlamaConfig {
+  "_name_or_path": "\u5168\u5fae\u8c03_ccpm+\u8bd7\u8bcd\u751f\u6210_2epoch",
+  "ag": true,
+  "alpha": 0.1,
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": true,
+  "attention_dropout": 0.1,
+  "attn_head_types": "0,1",
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 2560,
+  "max_length": 512,
+  "max_position_embeddings": 512,
+  "model_type": "llama",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 4,
+  "output_attentions": true,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scale": 0.1,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.39.0",
+  "use_cache": true,
+  "vocab_size": 55300
+}
+
+train_on_inputs True
+train_on_inputs True
+LlamaConfig {
+  "_name_or_path": "\u5168\u5fae\u8c03_ccpm+\u8bd7\u8bcd\u751f\u6210_2epoch",
+  "ag": true,
+  "alpha": 0.1,
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": true,
+  "attention_dropout": 0.1,
+  "attn_head_types": "0,1",
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 2560,
+  "max_length": 512,
+  "max_position_embeddings": 512,
+  "model_type": "llama",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 4,
+  "output_attentions": true,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scale": 0.1,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.39.0",
+  "use_cache": true,
+  "vocab_size": 55300
+}
+
+train_on_inputs True
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #0 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00000_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #1 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00001_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #2 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00002_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #3 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00003_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #4 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00004_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #5 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00005_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #6 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00006_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #7 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00007_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #8 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00008_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #9 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_00009_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-a4944ac508c154f9_*_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Concatenating 10 shards
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #0 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00000_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #1 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00001_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #2 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00002_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #3 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00003_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #4 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00004_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #5 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00005_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #6 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00006_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #7 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00007_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #8 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00008_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Process #9 will write at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_00009_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-f2ef3787993b8c46_*_of_00010.arrow
+12/02/2024 16:01:08 - INFO - datasets.arrow_dataset - Concatenating 10 shards
+None
+LlamaConfig {
+  "_name_or_path": "\u5168\u5fae\u8c03_ccpm+\u8bd7\u8bcd\u751f\u6210_2epoch",
+  "ag": true,
+  "alpha": 0.1,
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": true,
+  "attention_dropout": 0.1,
+  "attn_head_types": "0,1",
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 2560,
+  "max_length": 512,
+  "max_position_embeddings": 512,
+  "model_type": "llama",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 4,
+  "output_attentions": true,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scale": 0.1,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.39.0",
+  "use_cache": true,
+  "vocab_size": 55300
+}
+
+train_on_inputs True
+12/02/2024 16:01:17 - INFO - __main__ - Sample 116739 of the training set: {'input_ids': [1, 1, 29871, 32224, 29901, 33373, 32002, 31076, 32893, 30214, 38114, 30383, 30904, 31243, 35843, 32893, 29871, 13, 29871, 32235, 29901, 29871, 55298, 29871, 31979, 30752, 30898, 31649, 30951, 30214, 31244, 33031, 33947, 33633, 32893, 30267, 45566, 30313, 43825, 30413, 32840, 30214, 32878, 30780, 30525, 31043, 30267, 30533, 48915, 33432, 30805, 32404, 30214, 30528, 30329, 30534, 30429, 38455, 30267, 31853, 31993, 31506, 31273, 31709, 30214, 32182, 35386, 34865, 30486, 232, 187, 146, 30267, 55298, 259, 2], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [1, 1, 29871, 32224, 29901, 33373, 32002, 31076, 32893, 30214, 38114, 30383, 30904, 31243, 35843, 32893, 29871, 13, 29871, 32235, 29901, 29871, 55298, 29871, 31979, 30752, 30898, 31649, 30951, 30214, 31244, 33031, 33947, 33633, 32893, 30267, 45566, 30313, 43825, 30413, 32840, 30214, 32878, 30780, 30525, 31043, 30267, 30533, 48915, 33432, 30805, 32404, 30214, 30528, 30329, 30534, 30429, 38455, 30267, 31853, 31993, 31506, 31273, 31709, 30214, 32182, 35386, 34865, 30486, 232, 187, 146, 30267, 55298, 259, 2]}.
+12/02/2024 16:01:17 - INFO - __main__ - Sample 26225 of the training set: {'input_ids': [1, 1, 29871, 32224, 29901, 43545, 31688, 31076, 32893, 30214, 32455, 30383, 30904, 31243, 35843, 32893, 29871, 13, 29871, 32235, 29901, 29871, 55298, 29871, 233, 153, 187, 32294, 31475, 31994, 32813, 30214, 33309, 32279, 40106, 50926, 30267, 30329, 32077, 30804, 30319, 32327, 30214, 31850, 32519, 33441, 30830, 34323, 30267, 30951, 32267, 37362, 30805, 31022, 30214, 31749, 35165, 31915, 30780, 35279, 30267, 30413, 33790, 50631, 50828, 30846, 30214, 31370, 31201, 31072, 36120, 32812, 30267, 55298, 259, 2], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [1, 1, 29871, 32224, 29901, 43545, 31688, 31076, 32893, 30214, 32455, 30383, 30904, 31243, 35843, 32893, 29871, 13, 29871, 32235, 29901, 29871, 55298, 29871, 233, 153, 187, 32294, 31475, 31994, 32813, 30214, 33309, 32279, 40106, 50926, 30267, 30329, 32077, 30804, 30319, 32327, 30214, 31850, 32519, 33441, 30830, 34323, 30267, 30951, 32267, 37362, 30805, 31022, 30214, 31749, 35165, 31915, 30780, 35279, 30267, 30413, 33790, 50631, 50828, 30846, 30214, 31370, 31201, 31072, 36120, 32812, 30267, 55298, 259, 2]}.
+12/02/2024 16:01:17 - INFO - __main__ - Sample 288389 of the training set: {'input_ids': [1, 1, 29871, 32224, 29901, 30998, 40548, 32893, 30333, 48722, 32836, 30333, 30383, 13, 31100, 33790, 30408, 30319, 31875, 30214, 41637, 33908, 31931, 31143, 30486, 30267, 13, 29871, 32235, 30383, 32235, 30383, 44506, 42057, 43089, 30783, 30408, 30319, 31875, 30397, 30210, 44539, 30503, 45706, 30214, 32121, 43125, 32223, 32379, 32493, 32294, 30805, 37612, 30408, 30319, 30210, 40043, 30267, 42057, 30275, 33304, 32011, 32944, 30783, 30408, 30319, 30210, 34314, 37070, 30503, 34314, 40717, 30214, 32144, 30408, 30319, 30210, 31875, 30397, 33146, 32070, 32087, 30503, 31944, 36682, 30267, 32944, 31994, 38602, 30743, 32223, 32493, 32294, 36807, 30214, 45353, 32073, 32223, 30214, 32183, 37612, 30408, 30319, 30210, 40043, 30214, 30573, 34110, 31535, 30855, 32808, 33506, 31121, 52384, 30267, 33004, 31688, 32893, 30651, 33721, 32534, 30210, 33788, 37010, 30743, 32944, 39809, 30214, 43089, 30783, 30408, 30319, 31875, 30397, 30503, 44391, 30210, 40768, 30503, 35159, 39014, 30267, 2], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [1, 1, 29871, 32224, 29901, 30998, 40548, 32893, 30333, 48722, 32836, 30333, 30383, 13, 31100, 33790, 30408, 30319, 31875, 30214, 41637, 33908, 31931, 31143, 30486, 30267, 13, 29871, 32235, 30383, 32235, 30383, 44506, 42057, 43089, 30783, 30408, 30319, 31875, 30397, 30210, 44539, 30503, 45706, 30214, 32121, 43125, 32223, 32379, 32493, 32294, 30805, 37612, 30408, 30319, 30210, 40043, 30267, 42057, 30275, 33304, 32011, 32944, 30783, 30408, 30319, 30210, 34314, 37070, 30503, 34314, 40717, 30214, 32144, 30408, 30319, 30210, 31875, 30397, 33146, 32070, 32087, 30503, 31944, 36682, 30267, 32944, 31994, 38602, 30743, 32223, 32493, 32294, 36807, 30214, 45353, 32073, 32223, 30214, 32183, 37612, 30408, 30319, 30210, 40043, 30214, 30573, 34110, 31535, 30855, 32808, 33506, 31121, 52384, 30267, 33004, 31688, 32893, 30651, 33721, 32534, 30210, 33788, 37010, 30743, 32944, 39809, 30214, 43089, 30783, 30408, 30319, 31875, 30397, 30503, 44391, 30210, 40768, 30503, 35159, 39014, 30267, 2]}.
+12/02/2024 16:01:17 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /home/chengcheng/.cache/huggingface/datasets/csv/default-bdf4504b87390df9/0.0.0/9ea1179385ff7ad1e756d327ffccaa3b801175702a2d91528226ba2c66873f52/cache-2fce6ed418490099.arrow
+0 start train
+3 start train
+1 start train
+2 start train
+[2024-12-02 16:01:18,444] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.14.4, git-hash=unknown, git-branch=unknown
+[2024-12-02 16:01:18,823] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.000100, betas=(0.900000, 0.999000), weight_decay=0.000000, adam_w=1
+[2024-12-02 16:01:20,103] [INFO] [logging.py:96:log_dist] [Rank 0] Using DeepSpeed Optimizer param name adamw as basic optimizer
+[2024-12-02 16:01:20,104] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-12-02 16:01:20,123] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2024-12-02 16:01:20,123] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2024-12-02 16:01:20,124] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2024-12-02 16:01:20,124] [INFO] [stage_1_and_2.py:148:__init__] Reduce bucket size 500000000
+[2024-12-02 16:01:20,124] [INFO] [stage_1_and_2.py:149:__init__] Allgather bucket size 500000000
+[2024-12-02 16:01:20,124] [INFO] [stage_1_and_2.py:150:__init__] CPU Offload: True
+[2024-12-02 16:01:20,124] [INFO] [stage_1_and_2.py:151:__init__] Round robin gradient partitioning: False
+[2024-12-02 16:01:21,306] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
+[2024-12-02 16:01:21,307] [INFO] [utils.py:782:see_memory_usage] MA 0.69 GB         Max_MA 0.69 GB         CA 0.71 GB         Max_CA 1 GB 
+[2024-12-02 16:01:21,307] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 19.06 GB, percent = 7.6%
+[2024-12-02 16:01:21,708] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
+[2024-12-02 16:01:21,708] [INFO] [utils.py:782:see_memory_usage] MA 0.69 GB         Max_MA 0.69 GB         CA 0.71 GB         Max_CA 1 GB 
+[2024-12-02 16:01:21,708] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 20.52 GB, percent = 8.2%
+[2024-12-02 16:01:21,708] [INFO] [stage_1_and_2.py:543:__init__] optimizer state initialized
+[2024-12-02 16:01:21,826] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
+[2024-12-02 16:01:21,826] [INFO] [utils.py:782:see_memory_usage] MA 0.69 GB         Max_MA 0.69 GB         CA 0.71 GB         Max_CA 1 GB 
+[2024-12-02 16:01:21,826] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 20.5 GB, percent = 8.2%
+[2024-12-02 16:01:21,828] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer
+[2024-12-02 16:01:21,828] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using configured LR scheduler = WarmupDecayLR
+[2024-12-02 16:01:21,828] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = <deepspeed.runtime.lr_schedules.WarmupDecayLR object at 0x743c0cff39a0>
+[2024-12-02 16:01:21,828] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0001], mom=[[0.9, 0.999]]
+[2024-12-02 16:01:21,829] [INFO] [config.py:997:print] DeepSpeedEngine configuration:
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   amp_enabled .................. False
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   amp_params ................... False
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   bfloat16_enabled ............. True
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   bfloat16_immediate_grad_update  False
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   checkpoint_parallel_write_pipeline  False
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   checkpoint_tag_validation_enabled  True
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   checkpoint_tag_validation_fail  False
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x743c0cff31f0>
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   communication_data_type ...... None
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   curriculum_enabled_legacy .... False
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   curriculum_params_legacy ..... False
+[2024-12-02 16:01:21,829] [INFO] [config.py:1001:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   data_efficiency_enabled ...... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   dataloader_drop_last ......... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   disable_allgather ............ False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   dump_state ................... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   dynamic_loss_scale_args ...... None
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   eigenvalue_enabled ........... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   eigenvalue_gas_boundary_resolution  1
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   eigenvalue_layer_num ......... 0
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   eigenvalue_max_iter .......... 100
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   eigenvalue_stability ......... 1e-06
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   eigenvalue_tol ............... 0.01
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   eigenvalue_verbose ........... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   elasticity_enabled ........... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   fp16_auto_cast ............... None
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   fp16_enabled ................. False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   fp16_master_weights_and_gradients  False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   global_rank .................. 0
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   grad_accum_dtype ............. None
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   gradient_accumulation_steps .. 8
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   gradient_clipping ............ 1.0
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   gradient_predivide_factor .... 1.0
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   graph_harvesting ............. False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   initial_dynamic_scale ........ 1
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   load_universal_checkpoint .... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   loss_scale ................... 1.0
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   memory_breakdown ............. False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   mics_hierarchial_params_gather  False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   mics_shard_size .............. -1
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   optimizer_legacy_fusion ...... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   optimizer_name ............... adamw
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   optimizer_params ............. {'lr': 0.0001, 'betas': [0.9, 0.999], 'eps': 1e-08, 'weight_decay': 0.0}
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   pld_enabled .................. False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   pld_params ................... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   prescale_gradients ........... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   scheduler_name ............... WarmupDecayLR
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   scheduler_params ............. {'last_batch_iteration': -1, 'total_num_steps': 767, 'warmup_min_lr': 0, 'warmup_max_lr': 0.0001, 'warmup_num_steps': 400}
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   seq_parallel_communication_data_type  torch.float32
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   sparse_attention ............. None
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   sparse_gradients_enabled ..... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   steps_per_print .............. inf
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   timers_config ................ enabled=True synchronized=True
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   train_batch_size ............. 768
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   train_micro_batch_size_per_gpu  24
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   use_data_before_expert_parallel_  False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   use_node_local_storage ....... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   wall_clock_breakdown ......... False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   weight_quantization_config ... None
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   world_size ................... 4
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   zero_allow_untested_optimizer  False
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='cpu', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=True) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=True, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   zero_enabled ................. True
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   zero_force_ds_cpu_optimizer .. True
+[2024-12-02 16:01:21,830] [INFO] [config.py:1001:print]   zero_optimization_stage ...... 2
+[2024-12-02 16:01:21,831] [INFO] [config.py:987:print_user_config]   json = {
+    "fp16": {
+        "enabled": false, 
+        "loss_scale": 0, 
+        "loss_scale_window": 1000, 
+        "initial_scale_power": 16, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "optimizer": {
+        "type": "AdamW", 
+        "params": {
+            "lr": 0.0001, 
+            "betas": [0.9, 0.999], 
+            "eps": 1e-08, 
+            "weight_decay": 0.0
+        }
+    }, 
+    "scheduler": {
+        "type": "WarmupDecayLR", 
+        "params": {
+            "last_batch_iteration": -1, 
+            "total_num_steps": 767, 
+            "warmup_min_lr": 0, 
+            "warmup_max_lr": 0.0001, 
+            "warmup_num_steps": 400
+        }
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "offload_optimizer": {
+            "device": "cpu", 
+            "pin_memory": true
+        }, 
+        "offload_param": {
+            "device": "cpu", 
+            "pin_memory": true
+        }, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 5.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 5.000000e+08, 
+        "contiguous_gradients": true
+    }, 
+    "activation_checkpointing": {
+        "partition_activations": false, 
+        "cpu_checkpointing": false, 
+        "contiguous_memory_optimization": false, 
+        "number_checkpoints": null, 
+        "synchronize_checkpoint_boundary": false, 
+        "profile": false
+    }, 
+    "gradient_accumulation_steps": 8, 
+    "gradient_clipping": 1.0, 
+    "steps_per_print": inf, 
+    "train_batch_size": 768, 
+    "min_lr": 5e-07, 
+    "train_micro_batch_size_per_gpu": 24, 
+    "wall_clock_breakdown": false, 
+    "bf16": {
+        "enabled": true
+    }
+}
+{'loss': 3.2736, 'grad_norm': 0.8880817890167236, 'learning_rate': 3.843108934201205e-05, 'epoch': 0.01}
+{'loss': 2.7671, 'grad_norm': 0.5443443059921265, 'learning_rate': 5e-05, 'epoch': 0.03}
+{'loss': 2.6644, 'grad_norm': 0.49852240085601807, 'learning_rate': 5.6767378909116276e-05, 'epoch': 0.04}
+{'loss': 2.6023, 'grad_norm': 0.5514496564865112, 'learning_rate': 6.156891065798796e-05, 'epoch': 0.05}
+{'loss': 2.5977, 'grad_norm': 0.46165552735328674, 'learning_rate': 6.529326802603613e-05, 'epoch': 0.07}
+{'loss': 2.5571, 'grad_norm': 0.4639655351638794, 'learning_rate': 6.833628956710423e-05, 'epoch': 0.08}
+{'loss': 2.5619, 'grad_norm': 0.5701834559440613, 'learning_rate': 7.090912762055923e-05, 'epoch': 0.09}
+{'loss': 2.5357, 'grad_norm': 0.4230368435382843, 'learning_rate': 7.313782131597592e-05, 'epoch': 0.1}
+{'loss': 2.5225, 'grad_norm': 0.4635898470878601, 'learning_rate': 7.51036684762205e-05, 'epoch': 0.12}
+{'loss': 2.4971, 'grad_norm': 0.47818872332572937, 'learning_rate': 7.68621786840241e-05, 'epoch': 0.13}
+{'loss': 2.5265, 'grad_norm': 0.4590017795562744, 'learning_rate': 7.845294466544561e-05, 'epoch': 0.14}
+{'loss': 2.5135, 'grad_norm': 0.47679418325424194, 'learning_rate': 7.990520022509219e-05, 'epoch': 0.16}
+{'loss': 2.5001, 'grad_norm': 0.46607938408851624, 'learning_rate': 8.12411458364565e-05, 'epoch': 0.17}
+{'loss': 2.5095, 'grad_norm': 0.44562405347824097, 'learning_rate': 8.247803827854718e-05, 'epoch': 0.18}
+{'loss': 2.4819, 'grad_norm': 0.49561163783073425, 'learning_rate': 8.362955759314036e-05, 'epoch': 0.2}
+{'loss': 2.4985, 'grad_norm': 0.46175652742385864, 'learning_rate': 8.470673197396389e-05, 'epoch': 0.21}
+{'loss': 2.4797, 'grad_norm': 0.7053803205490112, 'learning_rate': 8.571858177028285e-05, 'epoch': 0.22}
+{'loss': 2.5061, 'grad_norm': 0.5537847280502319, 'learning_rate': 8.667257913420847e-05, 'epoch': 0.23}
+{'loss': 2.4734, 'grad_norm': 0.45989781618118286, 'learning_rate': 8.757498322664984e-05, 'epoch': 0.25}
+{'loss': 2.4941, 'grad_norm': 0.5890007019042969, 'learning_rate': 8.843108934201204e-05, 'epoch': 0.26}
+{'loss': 2.4907, 'grad_norm': 0.4433748424053192, 'learning_rate': 8.924541718766345e-05, 'epoch': 0.27}
+{'loss': 2.4899, 'grad_norm': 0.44804346561431885, 'learning_rate': 9.002185532343358e-05, 'epoch': 0.29}
+{'loss': 2.4553, 'grad_norm': 0.4427787959575653, 'learning_rate': 9.076377346750888e-05, 'epoch': 0.3}
+{'loss': 2.4861, 'grad_norm': 0.42286407947540283, 'learning_rate': 9.147411088308016e-05, 'epoch': 0.31}
+{'loss': 2.4864, 'grad_norm': 0.4423489570617676, 'learning_rate': 9.21554467100602e-05, 'epoch': 0.33}
+{'loss': 2.468, 'grad_norm': 0.4245029389858246, 'learning_rate': 9.281005649444445e-05, 'epoch': 0.34}
+{'loss': 2.47, 'grad_norm': 0.42151203751564026, 'learning_rate': 9.343995804332475e-05, 'epoch': 0.35}
+{'loss': 2.4826, 'grad_norm': 0.4560784697532654, 'learning_rate': 9.404694893653513e-05, 'epoch': 0.36}
+{'loss': 2.4522, 'grad_norm': 0.42568573355674744, 'learning_rate': 9.463263745284637e-05, 'epoch': 0.38}
+{'loss': 2.4729, 'grad_norm': 0.4253486692905426, 'learning_rate': 9.519846825112832e-05, 'epoch': 0.39}
+{'loss': 2.4719, 'grad_norm': 0.4265078604221344, 'learning_rate': 9.57457438390114e-05, 'epoch': 0.4}
+{'loss': 2.4709, 'grad_norm': 0.4292614161968231, 'learning_rate': 9.627564263195184e-05, 'epoch': 0.42}
+{'loss': 2.4887, 'grad_norm': 0.46065205335617065, 'learning_rate': 9.678923423254984e-05, 'epoch': 0.43}
+{'loss': 2.4404, 'grad_norm': 0.45875677466392517, 'learning_rate': 9.728749242827081e-05, 'epoch': 0.44}
+{'loss': 2.4481, 'grad_norm': 0.43447497487068176, 'learning_rate': 9.77713063045833e-05, 'epoch': 0.46}
+{'loss': 2.4467, 'grad_norm': 0.4264985918998718, 'learning_rate': 9.824148979219642e-05, 'epoch': 0.47}
+{'loss': 2.4661, 'grad_norm': 0.4019935429096222, 'learning_rate': 9.869878990592804e-05, 'epoch': 0.48}
+{'loss': 2.4457, 'grad_norm': 0.4240573048591614, 'learning_rate': 9.91438938846378e-05, 'epoch': 0.5}
+{'loss': 2.454, 'grad_norm': 0.44277554750442505, 'learning_rate': 9.957743540356073e-05, 'epoch': 0.51}
+{'loss': 2.4315, 'grad_norm': 0.4269010126590729, 'learning_rate': 0.0001, 'epoch': 0.52}
+{'loss': 2.4227, 'grad_norm': 0.4838429391384125, 'learning_rate': 9.754768392370572e-05, 'epoch': 0.53}
+{'loss': 2.4463, 'grad_norm': 0.4155374765396118, 'learning_rate': 9.482288828337876e-05, 'epoch': 0.55}
+{'loss': 2.4659, 'grad_norm': 0.4304412007331848, 'learning_rate': 9.209809264305178e-05, 'epoch': 0.56}
+{'loss': 2.4359, 'grad_norm': 0.43624526262283325, 'learning_rate': 8.93732970027248e-05, 'epoch': 0.57}
+{'loss': 2.4522, 'grad_norm': 0.43686050176620483, 'learning_rate': 8.664850136239782e-05, 'epoch': 0.59}
+{'loss': 2.4236, 'grad_norm': 0.44804781675338745, 'learning_rate': 8.392370572207085e-05, 'epoch': 0.6}
+{'loss': 2.4562, 'grad_norm': 0.4586218297481537, 'learning_rate': 8.119891008174387e-05, 'epoch': 0.61}
+{'loss': 2.4263, 'grad_norm': 0.4468754231929779, 'learning_rate': 7.84741144414169e-05, 'epoch': 0.63}
+{'loss': 2.4296, 'grad_norm': 0.40031731128692627, 'learning_rate': 7.574931880108992e-05, 'epoch': 0.64}
+{'loss': 2.4308, 'grad_norm': 0.41446566581726074, 'learning_rate': 7.302452316076294e-05, 'epoch': 0.65}
+{'loss': 2.4073, 'grad_norm': 0.4160921573638916, 'learning_rate': 7.029972752043597e-05, 'epoch': 0.66}
+{'loss': 2.447, 'grad_norm': 0.4079481065273285, 'learning_rate': 6.7574931880109e-05, 'epoch': 0.68}
+{'loss': 2.4239, 'grad_norm': 0.42649537324905396, 'learning_rate': 6.485013623978202e-05, 'epoch': 0.69}
+{'loss': 2.4287, 'grad_norm': 0.4331376850605011, 'learning_rate': 6.212534059945504e-05, 'epoch': 0.7}
+{'loss': 2.4164, 'grad_norm': 0.41505101323127747, 'learning_rate': 5.940054495912807e-05, 'epoch': 0.72}
+{'loss': 2.4133, 'grad_norm': 0.4209962785243988, 'learning_rate': 5.6675749318801095e-05, 'epoch': 0.73}
+{'loss': 2.4223, 'grad_norm': 0.4371226131916046, 'learning_rate': 5.395095367847411e-05, 'epoch': 0.74}
+{'loss': 2.409, 'grad_norm': 0.4192776083946228, 'learning_rate': 5.1226158038147145e-05, 'epoch': 0.76}
+{'loss': 2.4059, 'grad_norm': 0.43703269958496094, 'learning_rate': 4.850136239782016e-05, 'epoch': 0.77}
+{'loss': 2.4219, 'grad_norm': 0.5261094570159912, 'learning_rate': 4.577656675749319e-05, 'epoch': 0.78}
+{'loss': 2.412, 'grad_norm': 0.40318721532821655, 'learning_rate': 4.305177111716621e-05, 'epoch': 0.8}
+{'loss': 2.3884, 'grad_norm': 0.41764339804649353, 'learning_rate': 4.032697547683924e-05, 'epoch': 0.81}
+{'loss': 2.3803, 'grad_norm': 0.40925583243370056, 'learning_rate': 3.760217983651226e-05, 'epoch': 0.82}
+{'loss': 2.4101, 'grad_norm': 0.6726975440979004, 'learning_rate': 3.487738419618529e-05, 'epoch': 0.83}
+{'loss': 2.3901, 'grad_norm': 0.40300801396369934, 'learning_rate': 3.215258855585831e-05, 'epoch': 0.85}
+{'loss': 2.4231, 'grad_norm': 0.4120922088623047, 'learning_rate': 2.9427792915531337e-05, 'epoch': 0.86}
+{'loss': 2.4, 'grad_norm': 0.4028948247432709, 'learning_rate': 2.6702997275204362e-05, 'epoch': 0.87}
+{'loss': 2.3822, 'grad_norm': 0.4317919909954071, 'learning_rate': 2.3978201634877384e-05, 'epoch': 0.89}
+{'loss': 2.3823, 'grad_norm': 0.40849781036376953, 'learning_rate': 2.125340599455041e-05, 'epoch': 0.9}
+{'loss': 2.4004, 'grad_norm': 0.40455150604248047, 'learning_rate': 1.8528610354223434e-05, 'epoch': 0.91}
+{'loss': 2.3972, 'grad_norm': 0.5386900305747986, 'learning_rate': 1.580381471389646e-05, 'epoch': 0.93}
+{'loss': 2.3685, 'grad_norm': 0.41448938846588135, 'learning_rate': 1.3079019073569482e-05, 'epoch': 0.94}
+{'loss': 2.3682, 'grad_norm': 0.3920505940914154, 'learning_rate': 1.0354223433242507e-05, 'epoch': 0.95}
+{'loss': 2.3793, 'grad_norm': 0.40798327326774597, 'learning_rate': 7.629427792915532e-06, 'epoch': 0.96}
+{'loss': 2.3741, 'grad_norm': 0.42218008637428284, 'learning_rate': 4.904632152588556e-06, 'epoch': 0.98}
+{'loss': 2.3708, 'grad_norm': 0.3962865471839905, 'learning_rate': 2.1798365122615805e-06, 'epoch': 0.99}
+{'train_runtime': 6904.4849, 'train_samples_per_second': 85.331, 'train_steps_per_second': 0.111, 'train_loss': 2.469025299788454, 'epoch': 1.0}
+***** train metrics *****
+  epoch                    =        1.0
+  train_loss               =      2.469
+  train_runtime            = 1:55:04.48
+  train_samples            =     589165
+  train_samples_per_second =     85.331
+  train_steps_per_second   =      0.111
+12/02/2024 17:56:27 - INFO - __main__ - *** Evaluate ***
+***** eval metrics *****
+  epoch                   =        1.0
+  eval_accuracy           =     0.5346
+  eval_loss               =     1.5931
+  eval_runtime            = 0:00:01.93
+  eval_samples            =        800
+  eval_samples_per_second =    413.727
+  eval_steps_per_second   =      4.654
+  perplexity              =      4.919
+[2024-12-02 17:56:33,706] [INFO] [launch.py:351:main] Process 3384714 exits successfully.
+[2024-12-02 17:56:33,707] [INFO] [launch.py:351:main] Process 3384712 exits successfully.
+[2024-12-02 17:56:33,707] [INFO] [launch.py:351:main] Process 3384713 exits successfully.
+[2024-12-02 17:56:34,708] [INFO] [launch.py:351:main] Process 3384711 exits successfully.
+[2024-12-02 17:59:52,721] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
