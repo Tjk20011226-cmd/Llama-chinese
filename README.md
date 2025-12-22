@@ -25,7 +25,7 @@ Model weights can be made available for academic research purposes upon reasonab
 ## Data
 The datasets used in this study are publicly available.
 We provide detailed descriptions of data sources and preprocessing procedures in the paper.
-Please refer to `data/README.md` for instructions on obtaining and preparing the datasets.
+
 
 ## Baseline Models
 All baseline models (e.g., Qwen2-7B, ChatGLM3-6B) were evaluated using their publicly released checkpoints without additional fine-tuning on poetry-specific data.
